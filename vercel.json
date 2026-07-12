@@ -1,0 +1,47 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "package.json",
+      "use": "@vercel/next"
+    },
+    {
+      "src": "api/auth.py",
+      "use": "@vercel/python"
+    },
+    {
+      "src": "api/inventory.py",
+      "use": "@vercel/python"
+    },
+    {
+      "src": "api/branch.py",
+      "use": "@vercel/python"
+    },
+    {
+      "src": "api/pc_builder.py",
+      "use": "@vercel/python"
+    },
+    {
+      "src": "api/sales.py",
+      "use": "@vercel/python"
+    },
+    {
+      "src": "api/export.py",
+      "use": "@vercel/python"
+    },
+    {
+      "src": "api/debug.py",
+      "use": "@vercel/python"
+    }
+  ],
+  "routes": [
+    { "src": "/api/auth(.*)",      "dest": "/api/auth.py" },
+    { "src": "/api/inventory(.*)", "dest": "/api/inventory.py" },
+    { "src": "/api/branch(.*)",    "dest": "/api/branch.py" },
+    { "src": "/api/pc_builder(.*)", "dest": "/api/pc_builder.py" },
+    { "src": "/api/sales(.*)",     "dest": "/api/sales.py" },
+    { "src": "/api/export(.*)",    "dest": "/api/export.py" },
+    { "src": "/api/debug(.*)",     "dest": "/api/debug.py" },
+    { "src": "/(.*)",              "dest": "/$1" }
+  ]
+}
